@@ -1,0 +1,64 @@
+---
+title       : mtcars in slidify
+subtitle    : Data Products Class Project
+author      : S. Purvis
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+
+---
+
+## Project Introduction
+
+The first goal of this project is to create a shiny app the allows and end user interact with a data set by using a variety of widgets.
+
+https://scottpurvis.shinyapps.io/Week4Project/
+
+The second goal was to create a web page using Slidify 
+
+https://github.com/Scott-Purvis/DataProductsProj
+
+```{r echo=FALSE, message=FALSE}
+setwd("~/Scott's Document/RWorking/Coursera/DataProducts")
+library(corrplot)
+library(ggplot2)
+library(ggpmisc)
+```
+
+
+--- .class #id 
+
+## mtcars dataset
+```{r}
+data(mtcars)
+head(mtcars)
+
+```
+
+---
+## mpg and disp by Cylinder
+```{r}
+ggplot(mtcars, aes(mpg, disp))+geom_point()+facet_grid(.~cyl)
+```
+
+
+---
+
+## Individual Correlation
+```{r}
+ggplot(mtcars, aes(mpg, disp)) + geom_point()+geom_smooth(method = "lm")
+```
+
+---
+
+## Correlation Plots
+```{r}
+corrplot(cor(mtcars),method="circle")
+```
+
+
+
+
